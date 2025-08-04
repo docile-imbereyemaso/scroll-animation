@@ -3,9 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Intersection observer</title>
+    <style>
+        *{padding:0 ;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        p{
+            
+            background-color: rgba(0, 0, 0, 0.493);
+            color: wheat;
+            padding: 3rem;
+            margin: 3rem;
+            border-radius: 10px;
+            font-size: 20px;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: 600ms ease;
+        }
+        p.show{
+            opacity: 1;
+            transform: translateX(0%);
+
+        }
+    </style>
 </head>
 <body>
-    
+<div>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, fuga!</p>
+</div>     
+
+
+    <script>
+        const observer = new IntersectionObserver((entries)=>{
+            entries.forEach((entry)=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add("show")
+                }else{
+                     entry.target.classList.remove("show")
+                }
+            })
+        },{});
+
+        const todoElements = document.querySelectorAll("p");
+        todoElements.forEach((todo)=>observer.observe(todo));
+    </script>
 </body>
 </html>
